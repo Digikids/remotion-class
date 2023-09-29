@@ -1,15 +1,24 @@
-import { AbsoluteFill, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill } from 'remotion';
+
+import { AnimatedRotation } from '@riunge/kid-motion';
 
 export const HelloWorld: React.FC = () => {
-	const frame = useCurrentFrame();
-	const { durationInFrames } = useVideoConfig();
-	const animatedOpacity = (frame * 2) / durationInFrames;
-
 	return (
-		<AbsoluteFill style={{ backgroundColor: 'white' }}>
-			<AbsoluteFill style={{ opacity: animatedOpacity }}>
+		<AbsoluteFill style={{ backgroundColor: 'yellow' }}>
+			<AnimatedRotation
+				in={{
+					startTime: 0,
+					endTime: 10,
+				}}
+				out={{
+					startTime: -10,
+					endTime: 0,
+				}}
+				from={180}
+				to={0}
+			>
 				Hello World
-			</AbsoluteFill>
+			</AnimatedRotation>
 		</AbsoluteFill>
 	);
 };
