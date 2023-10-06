@@ -1,11 +1,11 @@
 import { AbsoluteFill } from 'remotion'
 
-import { AnimatedHorizontalPosition, AnimatedRotation } from '@riunge/kid-motion'
+import { AnimatedRotation, AnimatedScale } from '@riunge/kid-motion'
 
 export const HelloWorld: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: 'yellow' }}>
-      <AnimatedHorizontalPosition
+      <AnimatedScale
         in={{
           startTime: 0,
           endTime: 20,
@@ -15,7 +15,8 @@ export const HelloWorld: React.FC = () => {
           endTime: 0,
         }}
         from={0}
-        to={50}
+        to={1}
+        origin="left"
       >
         <AnimatedRotation
           in={{
@@ -41,7 +42,7 @@ export const HelloWorld: React.FC = () => {
             Hello World
           </span>
         </AnimatedRotation>
-      </AnimatedHorizontalPosition>
+      </AnimatedScale>
     </AbsoluteFill>
   )
 }
